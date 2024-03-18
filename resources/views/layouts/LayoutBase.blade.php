@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@yield('title')</title>
 
     {{-- includiamo gli assets --}}
     @vite('resources/js/app.js')
@@ -20,6 +20,8 @@
 {{-- @include('componets.HeaderBase') esempio di componente statico per tutte le pagine di atterraggio --}}
 
     {{-- main --}}
+
+    @yield('main');
 
 
 
