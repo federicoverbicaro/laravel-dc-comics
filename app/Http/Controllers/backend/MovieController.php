@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class MovieController extends Controller
 {
@@ -12,7 +13,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = config('movie');
+        $movies = Movie::All();
 
         return view('pages.movieView.index', compact('movies'));
     }
@@ -22,7 +23,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.movieView.create');
     }
 
     /**
@@ -30,15 +31,24 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $formData = $request->all();
+
+        $newMovie = new Movie();
+        $newMovie->fill($formData);
+
+        $newMovie->save();
+
+        return redirect()->route('movies.show', ['movie' => $newMovie->id]);
+        }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $movies = Movie::find($id);
+
+        return view('pages.movieView.show', compact('movies'));
     }
 
     /**

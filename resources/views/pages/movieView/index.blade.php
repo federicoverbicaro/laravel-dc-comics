@@ -10,6 +10,11 @@
 <div
     class="table-responsive"
 >
+<a class="btn btn-primary" href="{{ route('movies.create') }}"
+name=""
+id=""
+role="button">inserisci un nuovo film</a>
+
     <table
         class="table table-primary"
     >
@@ -23,24 +28,36 @@
                 <th scope="col">Series</th>
                 <th scope="col">Sale_date</th>
                 <th scope="col">Type</th>
+                <th scope="col">Azioni</th>
             </tr>
         </thead>
         <tbody>
+
             @foreach ($movies as $element )
             <tr class="">
-                <td>{{$element['id']}}</td>
+                <td>{{$element->id}}</td>
                 <td>
                     <a href="{{route('movies.show',['movie' => $element['id'] ] )}}">
-                        {{$element['title']}}</a>
+                        {{$element->Title}}</a>
                 </td>
-                <td>{{$element['description']}}</a></td>
-                <td>{{$element['thumb']}}</a></td>
-                <td>{{$element['price']}}</a></td>
-                <td>{{$element['series']}}</a></td>
-                <td>{{$element['sale_date']}}</a></td>
-                <td>{{$element['type']}}</a></td>
+                <td>{{$element->Description}}</td>
+                <td>{{$element->Thumb}}</td>
+                <td>{{$element->Price}}</td>
+                <td>{{$element->Series}}</td>
+                <td>{{$element->Sale_date}}</td>
+                <td>{{$element->Type}}</td>
+                <td>
+                   <button class="btn btn-primary "> Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-primary "> delete</button>
+                </td>
+
+
             </tr>
             @endforeach
+
+
 
         </tbody>
     </table>

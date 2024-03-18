@@ -21,7 +21,7 @@
 
     {{-- main --}}
 
-    @yield('main');
+    @yield('main')
 
 
 
