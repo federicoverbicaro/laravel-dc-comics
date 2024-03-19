@@ -47,11 +47,21 @@ role="button">inserisci un nuovo film</a>
                 <td>{{$element->Sale_date}}</td>
                 <td>{{$element->Type}}</td>
                 <td>
-                   <button class="btn btn-primary "> Edit</button>
+                  <a href="{{route('movies.edit', $element->id  )}}" class="btn btn-primary">Edit</a>
                 </td>
-                <td>
-                    <button class="btn btn-primary "> delete</button>
-                </td>
+
+                <form action="{{ route ('movies.destroy', $element->id ) }}" method="POST">
+
+                    @csrf
+                    @method('DELETE')
+                    <td>
+                        <button
+                        type="submit"
+                        class="btn btn-danger "> Delete</button>
+                    </td>
+
+                </form>
+
 
 
             </tr>

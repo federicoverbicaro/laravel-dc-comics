@@ -56,7 +56,9 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $movies = Movie::findOrFail($id);
+        return view('pages.movieView.edit', compact('movies'));
+
     }
 
     /**
@@ -64,7 +66,15 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $formData = $request->all();
+
+        $movies = Movie::find($id);
+
+        $movies->update($formData);
+
+        return redirect()->route('movies.index', ['movie' => $movies->id]);
+
+
     }
 
     /**
@@ -72,6 +82,9 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $movies = Movie::find($id);
+        $movies->delete();
+
+        return redirect()->route('movies.index');
     }
 }
