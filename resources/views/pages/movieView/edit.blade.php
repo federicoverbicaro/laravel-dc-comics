@@ -3,7 +3,7 @@
 @section('title', 'Movies | Edit')
 
 @section('main')
-    <h2 class="text-center ">Inserisci un nuovo film</h2>
+    <h2 class="text-center ">Modifica il  film</h2>
 
     <div>
         <form action="{{ route('movies.update', $movies->id)}}" method="POST">

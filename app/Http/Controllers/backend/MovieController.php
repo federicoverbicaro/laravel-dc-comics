@@ -38,7 +38,7 @@ class MovieController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('movies.show', ['movie' => $newMovie->id]);
+        return redirect()->route('movies.index', ['movie' => $newMovie->id]);
         }
 
     /**
