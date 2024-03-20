@@ -5,7 +5,7 @@
 @section('main')
     <h2 class="text-center ">Inserisci un nuovo film</h2>
 
-    <div>
+    <div class="container">
         @if ($errors->any())
         <div class="alert alert-danger ">
             <ul>

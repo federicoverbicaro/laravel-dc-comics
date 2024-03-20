@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use PhpParser\Node\Stmt\Return_;
 
 class MovieController extends Controller
 {
@@ -32,13 +33,13 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required',
-            'series' => 'required',
-            'sale_date' => 'required',
-            'type' => 'required',
+            'Title' => 'required',
+            'Description' => 'required',
+            'Thumb' => 'required',
+            'Price' => 'required',
+            'Series' => 'required',
+            'Sale_date' => 'required',
+            'Type' => 'required',
         ]);
 
         $formData = $request->all();
@@ -78,7 +79,7 @@ class MovieController extends Controller
     {
         $formData = $request->all();
 
-        $movies = Movie::find($id);
+        $movies = Movie::findOrFail($id);
 
         $movies->update($formData);
 
@@ -96,5 +97,7 @@ class MovieController extends Controller
         $movies->delete();
 
         return redirect()->route('movies.index');
+
+
     }
 }

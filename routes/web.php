@@ -20,3 +20,5 @@ Route::get('/', [PageControlle::class, 'index'])->name('homePage');
 
 /*controller di resources*/
 Route::resource('movies', MovieController::class);
+
+

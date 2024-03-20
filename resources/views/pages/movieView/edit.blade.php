@@ -5,7 +5,7 @@
 @section('main')
     <h2 class="text-center ">Modifica il  film</h2>
 
-    <div>
+    <div class="container">
         <form action="{{ route('movies.update', $movies->id)}}" method="POST">
             @csrf
             @method('PUT')
@@ -45,3 +45,4 @@
 
 
 @endsection
+
